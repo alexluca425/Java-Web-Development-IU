@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "python app/main.py"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+
+# Cron job configuration
+[[cron]]
+schedule = "0 0 * * *"  # Every day at midnight UTC
+command = "python cron_job.py"

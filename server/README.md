@@ -45,15 +45,22 @@ Grammar
 - POST /get_random_question - Retrieve a random question from the set that hasn't been answered correctly yet
 - POST /updates - Makes the required updates to the users document for anything grammar related
 - POST /grammar_success - When user has successfully completed the set of questions, the "grammar day" is completed and "streak" is incremented
-- POST /grammar_reset - Runs once a day automatically. If users haven't completed a set of questions, streak is reset to 0.
+- POST /grammar_reset - Runs once a day automatically. If users haven't completed a set of questions, streak is reset to 0. This is managed by a CRON 
 
 Voiceflow
 - POST /voiceflow/interact – Interacts with the voiceflow chat flow created
 - POST /voiceflow/reset – When user logouts, the state is reset for the user in voiceflow
 
 
+# Files needed to run server on Railway 
+- Procfile
+- runtime.txt
+- railway.toml (for cron job configuration)
+- cron_job.py (daily grammar resset script)
+
+
 # Notes
 - CORS is enabled
 - Voiceflow doesn't allow https://localhost:5000 to run API calls. The link needs to be public so I've deployed the server to Railway in order to make sure the voiceflow workflow fucntions as it should.
-- 
+- Refer to the voiceflow read me file for a comprehensive understanding of what it does.
 
