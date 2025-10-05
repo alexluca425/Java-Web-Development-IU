@@ -1,0 +1,38 @@
+.chat-form {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;           /* vertical centering */
+    justify-content: center;       /* center children horizontally */
+    gap: 8px;
+
+    padding: 8px 12px;
+    box-sizing: border-box;
+    margin: 0;                     /* avoid offset when fixed */
+}
+
+/* Optional: constrain input width so the group sits centered */
+.message-input {
+    flex: 0 1 640px;               /* prefer up to 640px, shrink if needed */
+    min-width: 240px;
+    max-width: 90vw;
+    
+    padding: 10px;
+    background-color: transparent;
+    border-color: aliceblue;
+    border-radius: 12px;
+}
+
+/* Keep the button at intrinsic size */
+.chat-form button {
+    flex: 0 0 auto;
+    background-color: transparent;
+    border-color: aliceblue;
+}
+
+.chat-form button:hover {
+    background-color: #2d3748;
+}
