@@ -1,3 +1,4 @@
+// Chatbot logo icon
 const ChatbotIcon = () => {
     return (
       <img 

@@ -1,6 +1,7 @@
 
-
+// Parse buttons from Voiceflow choices
 export default function ChatButtons({ buttons, onButtonClick }) {
+  // Don't render if no buttons provided
   if (!buttons || buttons.length === 0) {
     return null;
   }

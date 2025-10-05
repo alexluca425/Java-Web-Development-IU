@@ -1,16 +1,61 @@
-# React + Vite
+# React Client #
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite frontend application for the Try Study Agent web app. Implements user authentication, chatbot interface, and Voiceflow integration.
 
-Currently, two official plugins are available:
+# Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js (v18 or higher)
+- npm (or yarn/pnpm)
+- Backend server running (see `../server/README.md`)
 
-## React Compiler
+# Quick Start
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Install dependencies:
+    In bash:
+    npm install
 
-## Expanding the ESLint configuration
+2. Configure environment variables:
+    Create a .env in the client directory
+    VITE_SERVER_URL=http://127.0.0.1:5000 (to run locally)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Start the server
+    bash
+    npm run dev
+
+
+# Structure
+
+client/src/Components/Auth - handle the login, signup, and password reset
+client/src/Components/Chatbot - chatbot components
+client/src/hooks/Login_Signup - all the auth hooks are here
+client/src/hooks/Chatbot - voiceflow hook
+client/src/app - main app component
+client/public - stores the logo.png file
+
+
+# Key Features
+
+- Login/Signup
+- Password reset
+- Session management, automatic logout and state cleanup
+
+- Voiceflow integration
+- Interactive buttons
+- Auto scrol
+- Mobile friendly
+
+
+# API Integration
+
+The client communicates with the Flask backend through these endpoints:
+
+Auth:
+- POST /mongo_user/authentication - User login
+- POST /mongo_user/signup - User sign up
+- POST /mongo_user/verification - OTP verification
+- PATCH /mongo_user/resend_otp - Resend OTP code
+
+Chatbot:
+- POST /voiceflow/interact - Send messages to Voiceflow
+- POST /voiceflow/reset - Reset conversation state
+

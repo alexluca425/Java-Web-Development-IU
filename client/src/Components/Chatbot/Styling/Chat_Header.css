@@ -1,3 +1,4 @@
+/* Fixed header at top of screen */
 .header {
     position: fixed;
     top: 0;
@@ -10,6 +11,7 @@
     justify-content: space-between;
 }
 
+/* Logo and title container */
 .header .logo {
     display: flex;
     align-items: center;
@@ -18,6 +20,7 @@
     font-size: 10px;
 }
 
+/* Logout button styling */
 .header .logout-btn {
     background-color: brown;
     margin-right: 20px;

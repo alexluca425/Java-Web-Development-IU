@@ -39,6 +39,7 @@ export default function App() {
 
   // Conditional rendering depending on authentication status
   return isAuthenticated ? (
+    // Takes in logout prop to reset user VF flow
     <Chatbot 
       onLogout = {logout}
       userEmail = {userEmail}

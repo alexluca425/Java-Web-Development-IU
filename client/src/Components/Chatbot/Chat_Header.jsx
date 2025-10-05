@@ -1,9 +1,8 @@
 import ChatbotIcon from "./Chat_Icon";
 import "./Styling/Chat_Header.css";
 
-
-
-export default function ChatHeader ({ layoutValue, onLogout }) {
+// Chat header component with logo and logout button
+export default function ChatHeader ({ onLogout }) {
 
     return (
         <div>

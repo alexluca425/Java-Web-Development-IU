@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./Styling/Chat_Form.css";
 
-
-
+// Chat input form with textarea and send button
 export default function ChatForm({ onSend }) {
   const [inputValue, setInputValue] = useState("");
 
+  // Send message and clear input
   const handleSubmit = (e) => {
     e.preventDefault();
     const text = inputValue.trim();
@@ -14,19 +14,11 @@ export default function ChatForm({ onSend }) {
     setInputValue("");
   };
 
-  const handleEnter = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSubmit(e);
-    }
-  };
-
   return (
     <form className="chat-form" onSubmit={handleSubmit}>
       <textarea
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={handleEnter}
         placeholder="Chat here..."
         className="message-input"
         rows="1"
