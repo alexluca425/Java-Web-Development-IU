@@ -5,8 +5,8 @@ React + Vite frontend application for the Try Study Agent web app. Implements us
 # Prerequisites
 
 - Node.js (v18 or higher)
-- npm (or yarn/pnpm)
-- Backend server running (see `../server/README.md`)
+- npm
+- Backend server running (see /server/README.md)
 
 # Quick Start
 

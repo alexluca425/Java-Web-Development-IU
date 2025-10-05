@@ -1,8 +1,8 @@
-# Flask Server
+# Flask Server #
 
 # Prerequisites
 - PowerShell
-- Python 3.11+
+- Python 3.12+
 - Submission document to set up API keys
 
 # 1) Create and activate a virtual environment
@@ -53,6 +53,7 @@ Voiceflow
 
 
 # Notes
-- CORS is enabled for common methods
+- CORS is enabled
 - Voiceflow doesn't allow https://localhost:5000 to run API calls. The link needs to be public so I've deployed the server to Railway in order to make sure the voiceflow workflow fucntions as it should.
+- 
 

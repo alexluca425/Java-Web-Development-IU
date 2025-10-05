@@ -20,6 +20,10 @@ app.register_blueprint(mongo_grammar, url_prefix="/mongo_grammar")
 app.register_blueprint(voiceflow, url_prefix="/voiceflow")
 
 
-# Need to run the app in debug mode
+# Railway deployment configuration
+# In order to run locally comment out the last three lines and uncomment the app.run line
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
