@@ -1,0 +1,27 @@
+# Node
+client/node_modules/
+client/dist/
+client/.vite/
+*.log
+
+# Python
+server/.venv/
+server/__pycache__/
+server/*.pyc
+server/.pytest_cache/
+
+# Env/secrets
+*.env
+.env
+server/.env
+client/.env
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build/output
+build/
+dist/
