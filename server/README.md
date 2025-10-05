@@ -5,17 +5,17 @@
 - Python 3.12+
 - Submission document to set up API keys
 
-# 1) Create and activate a virtual environment
+# 1 Create and activate a virtual environment
 cd server
 py -3 -m venv .venv
 \.venv\Scripts\Activate.ps1
 
 
-# 2) Install dependencies
+# 2 Install dependencies
 pip install -r requirements.txt
 
 
-# 3) Configure environment variables (server/.env)
+# 3 Configure environment variables (server/.env)
 Create a file named .env in the server directory with the following keys:
 MONGODB_URI = ...
 RESEND_API_KEY = ...
@@ -25,13 +25,13 @@ BACKEND_ENDPOINT = ...
 
 Get the keys from the submission document.
 
-# 4) Run the server
+# 4 Run the server
 cd app
 python main.py
 
 This starts Flask at http://127.0.0.1:5000
 
-# 5) API endpoint overview
+# 5 API endpoint overview
 Users
 - POST /mongo_user/get_user_info – Retrieve info about a user
 - POST /mongo_user/authentication – Verify user email and password match
