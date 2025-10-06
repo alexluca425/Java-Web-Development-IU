@@ -52,6 +52,9 @@ Voiceflow
 - POST /voiceflow/reset – When user logouts, the state is reset for the user in voiceflow
 
 
+# 6 Cron Job
+
+
 # Files needed to run server on Railway 
 - Procfile
 - runtime.txt
