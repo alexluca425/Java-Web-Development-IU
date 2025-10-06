@@ -164,7 +164,7 @@ export default function Login_Signup({ onSubmit, onForgotPassword, onForgotPassw
     <div className="page">
 
       <h1 className="page-title">Try Study Agent</h1>
-      <h3 className="page-text">Prepare for the OSSLT English exam!</h3>
+      <h3 className="page-text">Practice your grammar skills!</h3>
 
       {/* Login Page */}
       {showLogin && (

@@ -14,6 +14,11 @@ Client and server each have their own README for more in depth takes.
 - Python 3.11+ (or your installed version) and pip
 
 
+# Production
+- Backend/server is hosted on Railway, the URL can be found in the submission slideshow
+- Frontend/client is hosted on Vercel, you can access the frontend at this URL: https://trystudyagent.com
+
+
 # Voiceflow - FYI how to obtain your own API key (private API key provided in the submission document)
 1) Import the ChatbotFlow.vf into your Voiceflow workspace (Projects → Import).
 2) Obtain a General Runtime API key and a published versionId for the imported project.
