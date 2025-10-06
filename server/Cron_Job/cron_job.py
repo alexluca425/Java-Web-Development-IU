@@ -4,10 +4,13 @@ import requests
 from dotenv import load_dotenv
 
 
+# Load environment variables
+load_dotenv()
 
-
-# Get the backend URL var
+# Get the backend URL var - use localhost for testing
 backend_url = os.environ.get('BACKEND_ENDPOINT', 'http://localhost:5000')
+
+print(f"Using backend URL: {backend_url}")
 
 
 # Function to run the grammar_reset endpoint in the mongo_grammar.py file
