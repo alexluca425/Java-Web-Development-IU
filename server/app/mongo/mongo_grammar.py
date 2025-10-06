@@ -270,7 +270,7 @@ def grammar_reset():
 
         return jsonify ({
             "success": True,
-            "Users updated": reset_count
+            "message": f"{reset_count} users updated"
         }), 200
 
     # Take care of any exceptions that may come up with working with the DB
