@@ -79,4 +79,5 @@
 .choice-button { 
   padding:8px 12px;
   border-radius:8px;
+  font-size: clamp(10px, 2.5vw, 20px) /* Dynamic sizing */
 }
