@@ -12,8 +12,7 @@
 
 /* Card container */
 .card {
-  width: 100%;
-  max-width: 420px;
+  width: clamp(200px, 50vw, 420px); /* dynamic width */
   background: #1f2937;
   border-radius: 12px;
   border: 2px solid #fff; 
@@ -30,12 +29,14 @@
 }
 
 .page-title {
+  font-size: clamp(30px, 10vw, 60px); /* dynamic width */
   margin: 0;
   color: #fff;
   text-align: center;
 }
 
 .page-text {
+  font-size: clamp(15px, 5vw, 30px); /* dynamic width */
   margin: 4px 0 4px;
   color: #fff;
   text-align: center;

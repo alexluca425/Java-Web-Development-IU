@@ -10,7 +10,7 @@
     justify-content: center;       
     gap: 8px;
 
-    padding: 8px 12px;
+    padding: 8px 50px;
     box-sizing: border-box;
     margin: 0;                     
 }
@@ -18,7 +18,7 @@
 /* Responsive text input with max width constraints */
 .message-input {
     flex: 0 1 640px;               /* prefer up to 640px, shrink if needed */
-    min-width: 240px;
+    min-width: 200px;
     max-width: 90vw;
     
     padding: 10px;

@@ -244,7 +244,7 @@ def grammar_reset():
 
             # If grammar completed is false then streak will be reset to 0
             # If it's true then just grammar_completed will be changed to false
-            if grammar_completed == False:
+            if grammar_completed == "FALSE":
                 update = {
                     "$set": {
                         "grammar.streak": 0,
@@ -258,7 +258,7 @@ def grammar_reset():
             else:
                 update = {
                     "$set": {
-                        "grammar.grammar_completed": False
+                        "grammar.grammar_completed": "FALSE"
                     }
                 }
                 users_collection.update_one({"user.email": user_email}, update)

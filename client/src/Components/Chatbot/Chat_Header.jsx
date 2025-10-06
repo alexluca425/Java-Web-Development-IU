@@ -9,7 +9,7 @@ export default function ChatHeader ({ onLogout }) {
             <div className="header">
                 <div className="logo">
                     <span className="chatbot-icon"><ChatbotIcon /></span>
-                    <h1>Try Study Agent</h1>
+                    <h1 className="logo-text">Try Study Agent</h1>
                 </div>
                 <button className="logout-btn" onClick={onLogout}>Logout</button>
             </div>

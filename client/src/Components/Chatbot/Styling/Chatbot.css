@@ -1,36 +1,37 @@
 /* Main chatbot container, fixed positioning with flex layout */
 .chatbot {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    bottom: 0;
-    max-height: calc(100vh - 100px); /* container stops before it reaches the header container */
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    align-items: center;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  max-height: calc(100vh - 100px); /* container stops before it reaches the header container */
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
 }
 
 /* Chat messages container with scrollable area */
 .chat-body {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    overflow-y: auto;
-    margin-bottom: 50px;
-    width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-y: auto;
+  margin-bottom: 50px;
+  width: 100vw;
 }
 
 /* Message styling */
 .message {
-    max-width: 80%;
-    padding: 6px 8px;
-    border-radius: 12px;
-    margin-top: 10px;
-  }
+  max-width: 80%;
+  padding: 6px 8px;
+  border-radius: 12px;
+  margin-top: 10px;
+  font-size: clamp(10px, 2.5vw, 20px)
+}
 
 .message p {
-    margin: 0;
+  margin: 0;
 }
   
 /* Bot messages on the left side */

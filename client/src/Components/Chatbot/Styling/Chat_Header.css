@@ -4,7 +4,6 @@
     top: 0;
     right: 0;
     left: 0;
-
     height: 80px;
     display: flex;
     align-items: center;
@@ -17,11 +16,21 @@
     align-items: center;
     gap: 10px;
     margin-left: 20px;
-    font-size: 10px;
 }
+
+.logo-text {
+    font-size: clamp(5px, 5vw, 40px); /* dynamic sizing */
+}
+
+.logo-img {
+    width: clamp(20px, 20vw, 75px) /* Dynamic sizing */
+}
+
 
 /* Logout button styling */
 .header .logout-btn {
     background-color: brown;
     margin-right: 20px;
+    font-size: clamp(6px, 2.5vw, 14px); /* Dynamic sizing */
+    padding-left: 10px;
 }

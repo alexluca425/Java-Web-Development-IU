@@ -53,17 +53,17 @@ Voiceflow
 
 
 # 6 Cron Job
-
+In the Cron_Job directory you will find the source code implemented into the Railway production function.
+This CRON job is set to run every day at 0 0 * * * or 00:00 UTC
+This means that if the user hasn't completed their grammar task for the day their streak will be reset and the grammar_completed value for ALL users will be set back to false.
 
 # Files needed to run server on Railway 
 - Procfile
 - runtime.txt
-- railway.toml (for cron job configuration)
-- cron_job.py (daily grammar resset script)
 
 
 # Notes
 - CORS is enabled
 - Voiceflow doesn't allow https://localhost:5000 to run API calls. The link needs to be public so I've deployed the server to Railway in order to make sure the voiceflow workflow fucntions as it should.
-- Refer to the voiceflow read me file for a comprehensive understanding of what it does.
+- Refer to the the read me file in the root directory for a comprehensive understanding of what voiceflow does.
 

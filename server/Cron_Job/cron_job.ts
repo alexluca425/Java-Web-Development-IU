@@ -1,42 +1,33 @@
-// cron_job.ts
-import { z } from "zod@3";
+/* 
+ * This file is written in typescipt as that is the language required by Railway in order to create CRON job
+ * In Railway create a new function and paste the following code as the source code for that function
+ * You also need to provide the backend url as a variable for the function
+*/
 
-const grammarResetResponse = z.object({
-  success: z.boolean(),
-  message: z.string(),
-  "Users updated": z.number().optional(),
-});
-
+// Get the backend URL in order to run the API call
 const backendUrl = process.env.BACKEND_ENDPOINT;
 
-console.log(`[${new Date().toISOString()}] CRON JOB STARTED`);
-console.log(`[${new Date().toISOString()}] Using backend URL: ${backendUrl}`);
-
-async function runGrammarReset(): Promise<void> {
-    console.log(`[${new Date().toISOString()}] Starting grammar reset function...`);
-    
-    try {
-        console.log(`[${new Date().toISOString()}] Making request to: ${backendUrl}/mongo_grammar/grammar_reset`);
-        
+// Function which will make the API call to reset grammar for the users
+async function runGrammarReset(): Promise<void> {    
+    try {        
         const response = await fetch(`${backendUrl}/mongo_grammar/grammar_reset`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({})
         });
-        
-        console.log(`[${new Date().toISOString()}] Response status: ${response.status}`);
-        
-        const data = grammarResetResponse.parse(await response.json());
-        console.log(`[${new Date().toISOString()}] Response data:`, data);
+                
+        // Parse response and handle accordingly
+        const data = await response.json();
         
         if (data.success) {
-            console.log(`[${new Date().toISOString()}] Grammar reset successful: ${data.message}`);
+            console.log(`Grammar reset successful: ${data.message}`);
         } else {
-            console.error(`[${new Date().toISOString()}] Grammar reset failed: ${data.message}`);
+            console.error(`Grammar reset failed: ${data.message}`);
         }
         
     } catch (error) {
-        console.error(`[${new Date().toISOString()}] Error in cron:`, error);
+        // Catch any errors that may occur
+        console.error(`Error in cron:`, error);
         process.exit(1);
     }
 }
