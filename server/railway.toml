@@ -2,7 +2,7 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "python Cron_Job/cron_job.py"
+startCommand = "cd Cron_Job && python cron_job.py"
 
 
 # Cron job configuration

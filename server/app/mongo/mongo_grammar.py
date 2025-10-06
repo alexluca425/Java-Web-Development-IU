@@ -229,43 +229,51 @@ def grammar_success():
 @mongo_grammar.route("/grammar_reset", methods=["POST"])
 def grammar_reset():
     try:
-        # Parse data from request body
-        data = request.get_json()
-        user_email = data.get("user_email")
+        # Get all users in the database
+        users = list(users_collection.find({}))
+        reset_count = 0
 
-        # Find user in the DB
-        doc = find_user(user_email)
-        grammar_completed = doc["grammar"]["grammar_completed"]
+        # Run through all the users that exist in the DB
+        for user in users:
+            user_email = user.get('user', {}).get('email')
 
-        # If grammar_completed is False then streak will be set to 0
-        if grammar_completed == False:
-            # Preparing updates
-            update = {
-                "$set": {
-                    "grammar.streak": 0,
-                    "grammar.correctly_answered": [],
-                    "grammar.incorrectly_answered": []
+            doc = find_user(user_email)
+
+            # Parse users grammar_completed value in order to determine the next action
+            grammar_completed = doc["grammar"]["grammar_completed"]
+
+            # If grammar completed is false then streak will be reset to 0
+            # If it's true then just grammar_completed will be changed to false
+            if grammar_completed == False:
+                update = {
+                    "$set": {
+                        "grammar.streak": 0,
+                        "grammar.correctly_answered": [],
+                        "grammar.incorrectly_answered": []
                     }
-            }
-            # Pushing updates and result is returned
-            users_collection.update_one({"user.email": user_email}, update)
-            return jsonify({
-                "success": True,
-                "message": "grammar_completed was False so the streak was reset to 0"
-            }), 200
-        else:
-            # If grammar_completed is True then a different update needs to happen
-            update = {
-                "$set": {"grammar.grammar_completed": False}
-            }
-            # Update is pushed and result is returned
-            users_collection.update_one({"user.email": user_email}, update)
-            return jsonify({
-                "success": True,
-                "message": "grammar_completed was changed from True to False"
-            }), 200
+                }
+                users_collection.update_one({"user.email": user_email}, update)
+                reset_count += 1
+                print(f"Reset streak to 0 for user: {user_email}")
+            else:
+                update = {
+                    "$set": {
+                        "grammar.grammar_completed": False
+                    }
+                }
+                users_collection.update_one({"user.email": user_email}, update)
+                reset_count += 1
+                print(f"Set grammar completed to false for user: {user_email}")
+
+        # Print how many users were updated
+        print(f"Grammar reset complete. {reset_count} user's reset.")
+
+        return jsonify ({
+            "success": True,
+            "Users updated": reset_count
+        }), 200
 
     # Take care of any exceptions that may come up with working with the DB
     except Exception as e:
         print(f"Error in grammar_reset: {e}")
-        return jsonify({"success": False, "message": f"Error reseting user: {str(e)}"}), 500
+        return jsonify({"success": False, "message": f"Error reseting users: {str(e)}"}), 500

@@ -8,7 +8,7 @@
 # 1 Create and activate a virtual environment
 cd server
 py -3 -m venv .venv
-\.venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 
 
 # 2 Install dependencies
