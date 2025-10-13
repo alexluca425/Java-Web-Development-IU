@@ -45,6 +45,8 @@ client/public - stores the logo.png file
 - Auto scrol
 - Mobile friendly
 
+- Loading animation while waiting for BOT message to appear client side through the LDRS package.
+
 
 # API Integration
 
