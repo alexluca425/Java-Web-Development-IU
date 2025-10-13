@@ -9,9 +9,9 @@ Make sure the following are installed on your system:
 
 Server: 
 1. Create the Virtual Environment:
-    cd server
-    py -3 -m venv .venv
-    .\.venv\Scripts\Activate.ps1
+- cd server
+- py -3 -m venv .venv
+- .\.venv\Scripts\Activate.ps1
 
 2. Install Dependencies:
 pip install -r requirements.txt
