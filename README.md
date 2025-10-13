@@ -25,12 +25,14 @@ Create a file named .env in the server directory with the following keys:
 - VOICEFLOW_API_KEY = ...
 - VOICEFLOW_VERSION_ID = ...
 - BACKEND_ENDPOINT = ...
+
 Get the keys from the submission document.
 
 
 4. Run the server
 - cd app
 - python main.py
+
 This starts Flask at http://127.0.0.1:5000. Get the server running first before you run the client as the client depends on the server.
 ---
 Client:
