@@ -5,6 +5,7 @@
 - Python 3.12+
 - Submission document to set up API keys
 
+
 # 1 Create and activate a virtual environment
 cd server
 py -3 -m venv .venv
@@ -25,20 +26,22 @@ BACKEND_ENDPOINT = ...
 
 Get the keys from the submission document.
 
+
 # 4 Run the server
 cd app
 python main.py
 
 This starts Flask at http://127.0.0.1:5000
 
+
 # 5 API endpoint overview
 Users
 - POST /mongo_user/get_user_info – Retrieve info about a user
 - POST /mongo_user/authentication – Verify user email and password match
 - POST /mongo_user/updates – Updates to the users document
-- POST /mongo_user/signup – Create a temporary pending user until user provides the OTP code sent to their email
+- POST /mongo_user/signup – Create a temporary pending user until user provides the OTP code sent to their email, sends OTP via the Resend API
 - POST /mongo_user/verification – Verify that the OTP code provided by the user is the same one sent in the email
-- PATCH /mongo_user/resend_otp – Resends the OTP code to th email
+- PATCH /mongo_user/resend_otp – Resends the OTP code to the email via the Resend API
 
 Grammar
 - POST /get_uncompleted_grammar_day - Retrieve a set of grammar questions that user hasn't completed yet
@@ -52,7 +55,19 @@ Voiceflow
 - POST /voiceflow/reset – When user logouts, the state is reset for the user in voiceflow
 
 
-# 6 Cron Job
+# 6 Resend API Functionality
+In the following path /server/app/auth you will find the auth.py file.
+This file has two functionslities:
+    - generate an OTP code
+    - send the OTP code to the users email address via the Resend API
+Resend is an email sending API for developers. It is a great way to make sure that emails sent don't end up in the spam folder.
+I connected my domain trystudyagent.com as well as my email addresss alex@trystudyagent.com, which is the address that will be sending the OTP codes, to Resend.
+It complements my user verification for this web app to make sure one user cannot create as many accounts as they like.
+Each account created requires email verification via the OTP code the auth.py file generates.
+The API key can be found in submission document.
+
+
+# 7 Cron Job
 In the Cron_Job directory you will find the source code implemented into the Railway production function.
 This CRON job is set to run every day at 0 0 * * * or 00:00 UTC
 This means that if the user hasn't completed their grammar task for the day their streak will be reset and the grammar_completed value for ALL users will be set back to false.

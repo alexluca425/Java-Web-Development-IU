@@ -1,17 +1,59 @@
 # Java & Web Development – Web App
 Full‑stack project with a React (Vite) client, Flask server, MongoDB, Resend email sending feature, and a Voiceflow (VF) chatbot.
 
+
+# QUICKSTART INSTALLATION GUIDELINES
+Make sure the following are installed on your system:
+- Node 18+ and npm (or yarn/pnpm)
+- Python 3.11+ (or your installed version) and pip
+
+Server: 
+1. Create the Virtual Environment:
+cd server
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+2. Install Dependencies:
+pip install -r requirements.txt
+
+3. Configure environment variables (server/.env)
+Create a file named .env in the server directory with the following keys:
+MONGODB_URI = ...
+RESEND_API_KEY = ...
+VOICEFLOW_API_KEY = ...
+VOICEFLOW_VERSION_ID = ...
+BACKEND_ENDPOINT = ...
+Get the keys from the submission document.
+
+4. Run the server
+cd app
+python main.py
+This starts Flask at http://127.0.0.1:5000
+Get the server running first before you run the client as the client depends on the server.
+---
+Client:
+1. Install dependencies:
+In bash:
+cd client
+npm install
+
+2. Configure environment variables:
+Create a .env in the client directory
+VITE_SERVER_URL=http://127.0.0.1:5000 (to run locally)
+
+3. Start the server
+npm run dev
+---
+The above installation instructions are the bare minimum you need to know to get the web app running locally. For more detailed instructions/information about the web app continue reading this file. You will also find README.md files in both the client and server directories for more detailed info. 
+
+
+
 # Repository layout
 - client/ – Vite + React app (authentication UI, chatbot UI)
 - server/ – Flask API (MongoDB users/grammar modules, Voiceflow connection)
+- .gitignore - Which files to ignore when uploading to GitHub
 - ChatbotFlow.vf – Voiceflow export you can import into your VF workspace
 - README.md – this file
-
-Client and server each have their own README for more in depth takes.
-
-# Prerequisites
-- Node 18+ and npm (or yarn/pnpm)
-- Python 3.11+ (or your installed version) and pip
 
 
 # Production
@@ -23,6 +65,7 @@ Client and server each have their own README for more in depth takes.
 1) Import the ChatbotFlow.vf into your Voiceflow workspace (Projects → Import).
 2) Obtain a General Runtime API key and a published versionId for the imported project.
 3) Put them in server/.env:
+
 
 # Voiceflow Chatbot Function Explained
 The reason for using voiceflow is because it makes implementing conversational AI chatbots into a web app extremely easy via the Dialog Manager API. Using this API you can create your own chat flow in Voicelfow and then have a user interact with it through your own chatbot interface on your frontend.
