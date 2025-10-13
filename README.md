@@ -80,6 +80,7 @@ A quick summary of the chatbots functions(for a deeper dive you can access my pr
 - Once grammar_intro is completed, user starts answering grammar multiple choice questions
 - If the user answers a question incorrectly then feedback is provided via another AI agent based on the question, the actual answer, the users submitted answer, and an indepth prompt
 - All the grammar API endpoints are managed inside of the voiceflow workflow, so once a user correctly completes a grammar question, or completed a grammar_day, etc the endpoints are called by the chatbot inside of Voiceflow
+- Quick note that Voiceflow has a limit on the number of AI API tokens a free account can consume. Once those tokens are used the chatbot fuctionality for the web app will not work anymore.
 
 
 Here is the AI Agent Grammar Feedback Prompt:
