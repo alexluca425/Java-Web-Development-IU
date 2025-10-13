@@ -13,36 +13,39 @@ Server:
 - py -3 -m venv .venv
 - .\.venv\Scripts\Activate.ps1
 
+
 2. Install Dependencies:
-pip install -r requirements.txt
+- pip install -r requirements.txt
+
 
 3. Configure environment variables (server/.env)
 Create a file named .env in the server directory with the following keys:
-MONGODB_URI = ...
-RESEND_API_KEY = ...
-VOICEFLOW_API_KEY = ...
-VOICEFLOW_VERSION_ID = ...
-BACKEND_ENDPOINT = ...
+- MONGODB_URI = ...
+- RESEND_API_KEY = ...
+- VOICEFLOW_API_KEY = ...
+- VOICEFLOW_VERSION_ID = ...
+- BACKEND_ENDPOINT = ...
 Get the keys from the submission document.
 
+
 4. Run the server
-cd app
-python main.py
-This starts Flask at http://127.0.0.1:5000
-Get the server running first before you run the client as the client depends on the server.
+- cd app
+- python main.py
+This starts Flask at http://127.0.0.1:5000. Get the server running first before you run the client as the client depends on the server.
 ---
 Client:
 1. Install dependencies:
-In bash:
-cd client
-npm install
+- cd client
+- npm install
+
 
 2. Configure environment variables:
-Create a .env in the client directory
-VITE_SERVER_URL=http://127.0.0.1:5000 (to run locally)
+Create a .env in the client directory. 
+- VITE_SERVER_URL=http://127.0.0.1:5000 //to run locally
+
 
 3. Start the server
-npm run dev
+- npm run dev
 ---
 The above installation instructions are the bare minimum you need to know to get the web app running locally. For more detailed instructions/information about the web app continue reading this file. You will also find README.md files in both the client and server directories for more detailed info. 
 

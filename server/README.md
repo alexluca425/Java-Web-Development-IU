@@ -7,30 +7,28 @@
 
 
 # 1 Create and activate a virtual environment
-cd server
-py -3 -m venv .venv
-.\.venv\Scripts\Activate.ps1
+- cd server
+- py -3 -m venv .venv
+- .\.venv\Scripts\Activate.ps1
 
 
 # 2 Install dependencies
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 
 # 3 Configure environment variables (server/.env)
 Create a file named .env in the server directory with the following keys:
-MONGODB_URI = ...
-RESEND_API_KEY = ...
-VOICEFLOW_API_KEY = ...
-VOICEFLOW_VERSION_ID = ...
-BACKEND_ENDPOINT = ...
-
+- MONGODB_URI = ...
+- RESEND_API_KEY = ...
+- VOICEFLOW_API_KEY = ...
+- VOICEFLOW_VERSION_ID = ...
+- BACKEND_ENDPOINT = ...
 Get the keys from the submission document.
 
 
 # 4 Run the server
-cd app
-python main.py
-
+- cd app
+- python main.py
 This starts Flask at http://127.0.0.1:5000
 
 

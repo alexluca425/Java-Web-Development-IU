@@ -11,16 +11,17 @@ React + Vite frontend application for the Try Study Agent web app. Implements us
 # Quick Start
 
 1. Install dependencies:
-In bash:
-cd client
-npm install
+- cd client
+- npm install
+
 
 2. Configure environment variables:
 Create a .env in the client directory
-VITE_SERVER_URL=http://127.0.0.1:5000 (to run locally)
+- VITE_SERVER_URL=http://127.0.0.1:5000 (to run locally)
+
 
 3. Start the server
-npm run dev
+- npm run dev
 
 
 # Structure
